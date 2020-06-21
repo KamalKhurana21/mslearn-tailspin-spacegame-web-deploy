@@ -136,7 +136,7 @@ stages:
       vmImage: 'ubuntu-18.04'
     environment: staging
     variables:
-    - group: 'Release'
+    - group: 'sample'
     strategy:
       runOnce:
         deploy:
