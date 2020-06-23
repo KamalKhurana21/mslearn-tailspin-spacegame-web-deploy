@@ -114,15 +114,9 @@ stages:
           - task: SqlAzureDacpacDeployment@1
             displayName: Generate schema change script
             inputs:
-<<<<<<< HEAD
               azureSubscription: 'Resource Manager - Tailspin - Space Game'
               authenticationType: 'server'
               serverName: '$(servername).database.windows.net'
-=======
-              azureSubscription: 'testconnection'
-              authenticationType: 'server'
-              serverName: '$(servername)'
->>>>>>> 785848b032f0bc7d04fa31cc6a9d6989ce674472
               databaseName: '$(databasename)'
               sqlUsername: '$(adminlogin)'
               sqlPassword: '$(adminPassword)'
@@ -158,15 +152,9 @@ stages:
           - task: SqlAzureDacpacDeployment@1
             displayName: 'Deploy SQL schema'
             inputs:
-<<<<<<< HEAD
               azureSubscription: 'Resource Manager - Tailspin - Space Game'
               authenticationType: 'server'
               serverName: '$(servername).database.windows.net'
-=======
-              azureSubscription: 'testconnection'
-              authenticationType: 'server'
-              serverName: '$(servername)'
->>>>>>> 785848b032f0bc7d04fa31cc6a9d6989ce674472
               databaseName: '$(databasename)'
               sqlUsername: '$(adminlogin)'
               sqlPassword: '$(adminPassword)'
@@ -194,7 +182,7 @@ stages:
           - task: AzureWebApp@1
             displayName: 'Azure App Service Deploy: website'
             inputs:
-              azureSubscription: 'tailspin-space-game-web-dev-db-kamal'
+              azureSubscription: 'Resource Manager - Tailspin - Space Game'
               appName: '$(WebAppNameDev)'
               package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/*.zip'
 
@@ -217,7 +205,7 @@ stages:
           - task: AzureWebApp@1
             displayName: 'Azure App Service Deploy: website'
             inputs:
-              azureSubscription: 'tailspin-space-game-web-test-db-kamal'
+              azureSubscription: 'Resource Manager - Tailspin - Space Game'
               appName: '$(WebAppNameTest)'
               package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/*.zip'
 
@@ -240,6 +228,6 @@ stages:
           - task: AzureWebApp@1
             displayName: 'Azure App Service Deploy: website'
             inputs:
-              azureSubscription: 'tailspin-space-game-web-stage-db-kamal'
+              azureSubscription: 'Resource Manager - Tailspin - Space Game'
               appName: '$(WebAppNameStaging)'
               package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/*.zip'
